@@ -1,78 +1,80 @@
-function WordCard({ item, deleteWord, updateScore }) {
+function WordCard({ word }) {
+
   function speakWord() {
-    const speech = new SpeechSynthesisUtterance(item.word)
-    speech.lang = "en-US"
-    window.speechSynthesis.speak(speech)
+    const utterance = new SpeechSynthesisUtterance(word.word)
+    speechSynthesis.speak(utterance)
   }
 
   return (
     <div className="word-card">
-      <div className="word-header">
-        <div>
-          <h2>{item.word}</h2>
-          <p className="phonetic">{item.pronunciation}</p>
-        </div>
 
-        <button className="listen-btn" onClick={speakWord}>
+      <div className="word-top">
+
+        <h2>{word.word}</h2>
+
+        <button
+          className="listen-btn"
+          onClick={speakWord}
+        >
           🔊 Listen
         </button>
+
       </div>
 
-      <div className="badge">
-        {item.score >= 3 ? "✅ Mastered" : "⚠️ Needs Practice"}
-      </div>
+      <p>
+        <strong>Meaning:</strong>
+        {" "}
+        {word.meaning}
+      </p>
 
-      <div className="word-section">
-        <h3>Example</h3>
-        <p>{item.example}</p>
-      </div>
+      <p>
+        <strong>Arabic:</strong>
+        {" "}
+        {word.arabic}
+      </p>
 
-      <div className="word-section">
-        <h3>Simple English Meaning</h3>
-        <p>{item.meaning}</p>
-      </div>
+      <p>
+        <strong>Pronunciation:</strong>
+        {" "}
+        {word.pronunciation}
+      </p>
 
-      <div className="word-section">
-        <h3>Arabic Meaning</h3>
-        <p>{item.arabic}</p>
-      </div>
+      <p>
+        <strong>Memory Trick:</strong>
+        {" "}
+        {word.memoryTrick}
+      </p>
 
-      <div className="word-section">
-        <h3>Memory Trick</h3>
-        <p>{item.memoryTrick}</p>
-      </div>
+      <p>
+        <strong>Example:</strong>
+        {" "}
+        {word.example}
+      </p>
 
-      <div className="word-section">
-        <h3>Word Family</h3>
-        <div className="family-tags">
-          {item.wordFamily.map((word, index) => (
-            <span key={index} className="tag">
-              {word}
-            </span>
-          ))}
-        </div>
-      </div>
+      <p>
+        <strong>Similar Words:</strong>
+        {" "}
+        {word.similarWords}
+      </p>
 
-      <div className="score-box">
-        Mastery Score: {item.score}/3
-      </div>
+      <p>
+        <strong>Visual Memory:</strong>
+        {" "}
+        {word.visualMemory}
+      </p>
 
-      <div className="card-buttons">
-        <button onClick={() => updateScore(item.word, 0)}>
+      <div className="mastery-buttons">
+
+        <button>
           I forgot
         </button>
 
-        <button onClick={() => updateScore(item.word, 3)}>
+        <button>
           I know
         </button>
 
-        <button
-          className="delete-btn"
-          onClick={() => deleteWord(item.word)}
-        >
-          Delete
-        </button>
       </div>
+
     </div>
   )
 }

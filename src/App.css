@@ -277,3 +277,233 @@
   background: #ef4444;
   color: white;
 }
+
+
+.app {
+  padding: 40px;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.header p {
+  color: #64748b;
+  font-size: 18px;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: white;
+  padding: 30px;
+  border-radius: 24px;
+}
+
+.stat-card h3 {
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.search-box {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 20px;
+  border: none;
+  border-radius: 18px;
+  font-size: 18px;
+}
+
+.search-box button {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 20px 40px;
+  border-radius: 18px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.quiz-box {
+  background: white;
+  padding: 30px;
+  border-radius: 24px;
+  margin-bottom: 40px;
+}
+
+.quiz-box h2 {
+  margin-bottom: 20px;
+}
+
+.quiz-box button {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.words-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 24px;
+}
+
+.word-card {
+  background: white;
+  padding: 30px;
+  border-radius: 24px;
+}
+
+.word-card h2 {
+  font-size: 38px;
+  margin-bottom: 16px;
+}
+
+.word-card p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+
+.word-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.listen-btn {
+  background: #e0e7ff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.mastery-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.mastery-buttons button {
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.dark-mode-btn {
+  background: #111827;
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 14px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+body.dark {
+  background: #0f172a;
+  color: white;
+}
+
+body.dark .header p {
+  color: #cbd5e1;
+}
+
+body.dark .stat-card,
+body.dark .quiz-box,
+body.dark .word-card,
+body.dark .search-box input {
+  background: #1e293b;
+  color: white;
+}
+
+body.dark .search-box input::placeholder {
+  color: #94a3b8;
+}
+
+body.dark .listen-btn {
+  background: #334155;
+  color: white;
+}
+
+
+button {
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.word-card,
+.stat-card,
+.quiz-box {
+  transition: all 0.3s ease;
+}
+
+.word-card:hover,
+.stat-card:hover,
+.quiz-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.search-box input {
+  transition: all 0.25s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  transform: scale(1.01);
+  box-shadow: 0 0 0 4px rgba(79,70,229,0.15);
+}
+
+.app.dark {
+  background: #0f172a;
+  color: white;
+}
+
+.app.dark .stat-card,
+.app.dark .quiz-box,
+.app.dark .word-card,
+.app.dark .search-box input {
+  background: #1e293b;
+  color: white;
+}
+
+.app.dark .header p,
+.app.dark .word-card p,
+.app.dark .stat-card h3 {
+  color: #cbd5e1;
+}
+
+.app.dark .search-box input::placeholder {
+  color: #94a3b8;
+}

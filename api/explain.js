@@ -57,7 +57,8 @@ Use this exact structure:
       })
     }
 
-    const text = data.output[0].content[0].text
+    const text =
+      data.output?.[0]?.content?.[0]?.text || "{}"
     const result = JSON.parse(text)
 
     return response.status(200).json(result)

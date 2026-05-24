@@ -1,17 +1,24 @@
-function SearchBox({ word, setWord, addWord, isLoading }) {
+function SearchBox({
+  input,
+  setInput,
+  addWord,
+  loading
+}) {
   return (
-    <section className="search-box">
+    <div className="search-box">
+
       <input
         type="text"
         placeholder="Enter a word..."
-        value={word}
-        onChange={(e) => setWord(e.target.value)}
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
       />
 
-      <button onClick={addWord} disabled={isLoading}>
-        {isLoading ? "Explaining..." : "Save Word"}
+      <button onClick={addWord}>
+        {loading ? "Explaining..." : "Explain"}
       </button>
-    </section>
+
+    </div>
   )
 }
 

@@ -1,32 +1,33 @@
-function Stats({ totalWords, masteredWords, weakWords, masteryPercentage, showWeakOnly, setShowWeakOnly }) {
+function Stats({
+  totalWords,
+  weakWords,
+  mastered,
+  mastery
+}) {
   return (
-    <section className="stats-section">
-      <div className="stats-grid">
-        <div className="stat-card">
-          <p>Total Words</p>
-          <h2>{totalWords}</h2>
-        </div>
+    <div className="stats-container">
 
-        <div className="stat-card">
-          <p>Weak Words</p>
-          <h2>{weakWords}</h2>
-        </div>
-
-        <div className="stat-card">
-          <p>Mastered</p>
-          <h2>{masteredWords}</h2>
-        </div>
-
-        <div className="stat-card">
-          <p>Mastery</p>
-          <h2>{masteryPercentage}%</h2>
-        </div>
+      <div className="stat-card">
+        <h3>Total Words</h3>
+        <p>{totalWords}</p>
       </div>
 
-      <button className="secondary-button" onClick={() => setShowWeakOnly(!showWeakOnly)}>
-        {showWeakOnly ? "Show All Words" : "Show Weak Words"}
-      </button>
-    </section>
+      <div className="stat-card">
+        <h3>Weak Words</h3>
+        <p>{weakWords}</p>
+      </div>
+
+      <div className="stat-card">
+        <h3>Mastered</h3>
+        <p>{mastered}</p>
+      </div>
+
+      <div className="stat-card">
+        <h3>Mastery</h3>
+        <p>{mastery}%</p>
+      </div>
+
+    </div>
   )
 }
 
