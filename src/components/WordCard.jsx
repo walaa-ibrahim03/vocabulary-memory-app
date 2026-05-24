@@ -1,73 +1,63 @@
 function WordCard({ item, deleteWord, updateScore }) {
-  const isMastered = item.score >= 3
-  const isWeak = item.score === 0
-
   function speakWord() {
     const speech = new SpeechSynthesisUtterance(item.word)
     speech.lang = "en-US"
-    speech.rate = 0.8
     window.speechSynthesis.speak(speech)
   }
 
   return (
-    <div className={`word-card ${isMastered ? "mastered" : ""} ${isWeak ? "weak" : ""}`}>
-      <div className="word-card-header">
+    <div className="word-card">
+      <div className="word-header">
         <div>
-          <h3>{item.word}</h3>
-          <p className="pronunciation">{item.pronunciation}</p>
-
-          <button className="sound-btn" onClick={speakWord}>
-            🔊 Listen
-          </button>
+          <h2>{item.word}</h2>
+          <p className="phonetic">{item.pronunciation}</p>
         </div>
 
-        <span className="badge">
-          {isMastered ? "🧠 Mastered" : "⚠️ Needs Practice"}
-        </span>
+        <button className="listen-btn" onClick={speakWord}>
+          🔊 Listen
+        </button>
+      </div>
+
+      <div className="badge">
+        {item.score >= 3 ? "✅ Mastered" : "⚠️ Needs Practice"}
       </div>
 
       <div className="word-section">
-        <h4>Example</h4>
+        <h3>Example</h3>
         <p>{item.example}</p>
       </div>
 
       <div className="word-section">
-        <h4>Simple English Meaning</h4>
+        <h3>Simple English Meaning</h3>
         <p>{item.meaning}</p>
       </div>
 
       <div className="word-section">
-        <h4>Arabic Meaning</h4>
+        <h3>Arabic Meaning</h3>
         <p>{item.arabic}</p>
       </div>
 
       <div className="word-section">
-        <h4>Memory Trick</h4>
+        <h3>Memory Trick</h3>
         <p>{item.memoryTrick}</p>
       </div>
 
       <div className="word-section">
-        <h4>Word Family</h4>
-
-        <div className="word-family">
-          {item.wordFamily?.map((familyWord, index) => (
-            <span key={index}>
-              {familyWord}
+        <h3>Word Family</h3>
+        <div className="family-tags">
+          {item.wordFamily.map((word, index) => (
+            <span key={index} className="tag">
+              {word}
             </span>
           ))}
         </div>
       </div>
 
-      <div className="mastery-bar">
-        <div
-          className="mastery-fill"
-          style={{ width: `${(item.score / 3) * 100}%` }}
-        ></div>
+      <div className="score-box">
+        Mastery Score: {item.score}/3
       </div>
 
-      <p className="score">Mastery Score: {item.score}/3</p>
-
-      <div className="card-actions">
+      <div className="card-buttons">
         <button onClick={() => updateScore(item.word, 0)}>
           I forgot
         </button>
@@ -76,7 +66,10 @@ function WordCard({ item, deleteWord, updateScore }) {
           I know
         </button>
 
-        <button className="delete-btn" onClick={() => deleteWord(item.word)}>
+        <button
+          className="delete-btn"
+          onClick={() => deleteWord(item.word)}
+        >
           Delete
         </button>
       </div>
